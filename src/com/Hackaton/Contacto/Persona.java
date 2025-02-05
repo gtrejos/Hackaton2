@@ -10,16 +10,16 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    //* métod getter para obtener el nombre
+    //* Métod getter para obtener el nombre
     public String getNombre() {
         return nombre;
     }
-    // Méttodo gtter para obtener el apellido
+    // Métod gtter para obtener el apellido
     public String getApellido() {
         return apellido;
     }
 
-    // Méttodo toString para mostrar la representación de la persona
+    // Métdo toString para mostrar la representación de la persona
     @Override
     public String toString() {
         return "Nombre: " + nombre + ", Apellido: " + apellido;
