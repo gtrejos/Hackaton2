@@ -1,9 +1,8 @@
 package com.Hackaton.Main;
-
-//*Se importaron las clases :
-// Agenda:Para gestionar los contactos.
-// Contácto: Representa un contacto.
-// Scannr: Para la entrada del Usuario.
+/**
+ * Clase principal que gestiona la interacción del usuario con la agenda de contactos.
+ * Permite añadir, buscar, eliminar y listar contactos.
+ */
 import com.Hackaton.Agenda.Agenda;
 import com.Hackaton.Contacto.Contacto;
 import java.util.Scanner;
@@ -11,16 +10,30 @@ import java.util.Scanner;
 
 public class Main {
 
-        //* Se creo un objeto scanner para leer la entrada del usuario.
-        //* Instacioa Agenda
-        //* Variable para almacenar la opción seleccionada por el usuario
+/**
+* Métoodo principal que inicia la aplicación y presenta un menú para gestionar contactos.*/
 
         public static void main(String[] args) {
-            Scanner scanner = new Scanner(System.in);
-            Agenda agenda = new Agenda();
-            int opcion;
 
-            //*Muestra el menú de opciones al usuario
+// Crear un objeto Scanner para leer la entrada del usuario desde la consola.
+
+            Scanner scanner = new Scanner(System.in);
+            int opcion;
+            String nombre;
+            String apellido;
+            String telefono;
+
+// Solicitar al usuario la capacidad de la agenda o usar el valor por defecto.
+
+            System.out.println("Digite el cantidad de contactos que quieres agregar en la agenda o digite 0 para dejarla por defecto:");
+            int capacidad = scanner.nextInt();
+            if (capacidad == 0) {
+                capacidad = 10;
+
+            }
+            Agenda agenda = new Agenda(capacidad);
+
+// Mostrar el menú de opciones disponibles para gestionar la agenda de contactos.
 
             do {
                 System.out.println("--- Menú de la Agenda ---");
@@ -36,23 +49,30 @@ public class Main {
                 opcion = scanner.nextInt();
                 scanner.nextLine();
 
-                //*Estructura de control para manejar las opciones del menú.
+// Estructura de control switch para manejar las opciones seleccionadas por el usuario en el menú.
 
                 switch (opcion) {
                     case 1:
                         System.out.print("Introduce el nombre: ");
-                        String nombre = scanner.nextLine();
+                        nombre = scanner.nextLine();
                         System.out.print("Introduce el apellido: ");
-                        String apellido = scanner.nextLine();
+                        apellido = scanner.nextLine();
                         System.out.print("Introduce el teléfono: ");
-                        String telefono = scanner.nextLine();
+                        telefono = scanner.nextLine();
                         agenda.añadirContacto(new Contacto(nombre, apellido, telefono));
                         break;
                     case 2:
                         System.out.print("Introduce el nombre del contacto a verificar: ");
                         nombre = scanner.nextLine();
-                        boolean existe = agenda.existeContacto(new Contacto(nombre, "", ""));
-                        System.out.println(existe ? "El contacto existe." : "El contacto no existe.");
+                        System.out.print("Introduce el apellido del contacto a verificar: ");
+                        apellido = scanner.nextLine();
+                        boolean existe = agenda.existeContacto(new Contacto(nombre, apellido,""));
+                        System.out.println(existe);
+                        if (existe) {
+                            System.out.println("El contacto existe.");
+                        } else {
+                            System.out.println("El contacto no existe.");
+                        }
                         break;
                     case 3:
                         agenda.listarContactos();
@@ -60,7 +80,9 @@ public class Main {
                     case 4:
                         System.out.print("Introduce el nombre del contacto a buscar: ");
                         nombre = scanner.nextLine();
-                        agenda.buscaContacto(nombre);
+                        System.out.print("Introduce el apellido del contacto a buscar: ");
+                        apellido = scanner.nextLine();
+                        agenda.buscaContacto(nombre, apellido);
                         break;
                     case 5:
                         System.out.print("Introduce el nombre del contacto a eliminar: ");
@@ -68,7 +90,11 @@ public class Main {
                         agenda.eliminarContacto(nombre);
                         break;
                     case 6:
-                        System.out.println(agenda.agendaLlena() ? "La agenda está llena." : "La agenda tiene espacio.");
+                        if (agenda.agendaLlena()) {
+                            System.out.println("La agenda está llena.");
+                        } else {
+                            System.out.println("La agenda tiene espacio.");
+                        }
                         break;
                     case 7:
                         System.out.println("Espacios libres: " + agenda.espacioLibres());

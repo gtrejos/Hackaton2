@@ -27,28 +27,41 @@ public class Agenda {
             }
         }
         public boolean existeContacto(Contacto c) {
-            return contactos.contains(c);
+        for (Contacto contacto : contactos) {
+            if (contacto.getNombre().equals(c.getNombre())) {
+                return true;
+            }
+        }
+         return false;
         }
 
-        public void listarContactos() {
-            if (contactos.isEmpty()) {
-                System.out.println("La agenda está vacía.");
-            } else {
-                System.out.println("Contactos en la agenda:");
-                for (Contacto c : contactos) {
-                    System.out.println(c);
+
+    public void listarContactos() {
+        if (contactos.isEmpty()) {
+            System.out.println("La agenda está vacía.");
+        } else {
+            contactos.sort((c1, c2) -> {
+                int comparacionNombre = c1.getNombre().compareToIgnoreCase(c2.getNombre());
+                if (comparacionNombre == 0) {
+                    return c1.getApellido().compareToIgnoreCase(c2.getApellido());
                 }
-            }
-        }
-        public void buscaContacto(String nombre) {
+                return comparacionNombre;
+            });
+            System.out.println("Contactos en la agenda:");
             for (Contacto c : contactos) {
-                if (c.getNombre().equalsIgnoreCase(nombre)) {
-                    System.out.println("Contacto encontrado: " + c);
-                    return;
-                }
-            }
-            System.out.println("No se encontró un contacto con el nombre: " + nombre);
+                System.out.println(c);
+              }
+           }
         }
+        public void buscaContacto(String nombre, String apellido) {
+        for (Contacto c : contactos) {
+            if (c.getNombre().equalsIgnoreCase(nombre) && c.getApellido().equalsIgnoreCase(apellido)) {
+                System.out.println("Número de télefono del usuario: " + c.getTelefono());
+                return;
+            }
+        }
+        System.out.println("No se encontró un contacto con el nombre y apellido: " + nombre + " " + apellido);
+    }
 
         public void eliminarContacto(String nombre) {
         for (Contacto c : contactos) {
@@ -68,4 +81,8 @@ public class Agenda {
         public int espacioLibres() {
             return capacidad - contactos.size();
         }
+
+    public void buscaContacto(String nombre) {
+
     }
+}
