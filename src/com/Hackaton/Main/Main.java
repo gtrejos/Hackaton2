@@ -21,7 +21,7 @@ public class Main {
 
 //* Solicitar al usuario la capacidad de la agenda o usar el valor por defecto.
 
-            System.out.println("Digite el cantidad de contactos que quieres agregar en la agenda o digite 0 para dejarla por defecto:");
+            System.out.println(" Digite el cantidad de contactos que quieres agregar en la agenda o digite 0 para dejarla por defecto:");
             int capacidad = scanner.nextInt();
             if (capacidad == 0) {
                 capacidad = 10;
