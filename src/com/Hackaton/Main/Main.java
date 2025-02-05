@@ -1,21 +1,17 @@
 package com.Hackaton.Main;
-/**
- * Clase principal que gestiona la interacción del usuario con la agenda de contactos.
- * Permite añadir, buscar, eliminar y listar contactos.
- */
+
 import com.Hackaton.Agenda.Agenda;
 import com.Hackaton.Contacto.Contacto;
 import java.util.Scanner;
 
-
+//*Clase principal que gestiona la interacción del usuario con la agenda de contactos.
 public class Main {
 
-/**
-* Métoodo principal que inicia la aplicación y presenta un menú para gestionar contactos.*/
+//*Métoodo principal que inicia la aplicación y presenta un menú para gestionar contactos.
 
         public static void main(String[] args) {
 
-// Crear un objeto Scanner para leer la entrada del usuario desde la consola.
+//* Crear un objeto Scanner para leer la entrada del usuario desde la consola.
 
             Scanner scanner = new Scanner(System.in);
             int opcion;
@@ -23,7 +19,7 @@ public class Main {
             String apellido;
             String telefono;
 
-// Solicitar al usuario la capacidad de la agenda o usar el valor por defecto.
+//* Solicitar al usuario la capacidad de la agenda o usar el valor por defecto.
 
             System.out.println("Digite el cantidad de contactos que quieres agregar en la agenda o digite 0 para dejarla por defecto:");
             int capacidad = scanner.nextInt();
@@ -33,7 +29,7 @@ public class Main {
             }
             Agenda agenda = new Agenda(capacidad);
 
-// Mostrar el menú de opciones disponibles para gestionar la agenda de contactos.
+//* Mostrar el menú de opciones disponibles para gestionar la agenda de contactos.
 
             do {
                 System.out.println("--- Menú de la Agenda ---");
@@ -49,7 +45,7 @@ public class Main {
                 opcion = scanner.nextInt();
                 scanner.nextLine();
 
-// Estructura de control switch para manejar las opciones seleccionadas por el usuario en el menú.
+//* Estructura de control switch para manejar las opciones seleccionadas por el usuario en el menú.
 
                 switch (opcion) {
                     case 1:

@@ -15,7 +15,7 @@ public class Contacto extends Persona {
         return telefono;
     }
 
-    //* Métoddo toString para mostrar la representación del contacto
+    //* Métoodo toString para mostrar la representación del contacto
     @Override
     public String toString() {
         return super.toString() + ", Teléfono: " + telefono;
