@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 //*Clase Agenda que gestiona una lista de contactos.
  //* Permite añadir, buscar, listar y eliminar contactos.
+
 public class Agenda {
     // Lista que almacena los contactos
     private ArrayList<Contacto> contactos;
@@ -39,7 +40,6 @@ public class Agenda {
     //*Verifica si un contacto ya existe en la agenda.
     //*  c El contacto a verificar.
     //* return true si el contacto existe, false en caso contrario.
-
     public boolean existeContacto(Contacto c) {
         for (Contacto contacto : contactos) {
             if (contacto.getNombre().equals(c.getNombre())) {
@@ -52,23 +52,16 @@ public class Agenda {
     //* Lista todos los contactos en la agenda, ordenados por nombre y apellido.
     public void listarContactos() {
         if (contactos.isEmpty()) {
-            System.out.println("La agenda está vacía.");
-        } else {
-            // Ordena los contactos por nombre y apellido
-            contactos.sort((c1, c2) -> {
-                int comparacionNombre = c1.getNombre().compareToIgnoreCase(c2.getNombre());
-                if (comparacionNombre == 0) {
-                    return c1.getApellido().compareToIgnoreCase(c2.getApellido());
-                }
-                return comparacionNombre;
-            });
-            System.out.println("Contactos en la agenda:");
-            for (Contacto c : contactos) {
-                System.out.println(c);
+            System.out.println("La agenda está vacía.No hay contactos");
+            return;
+        }
+
+            System.out.println("Lista de Contactos:");
+            for (Contacto contacto : contactos) {
+                System.out.println(contacto);
             }
         }
-    }
-
+        
     //*Busca un contacto por nombre y apellido y muestra su número de teléfono.
     //*nombre : El nombre del contacto a buscar.
     //*apellido: El apellido del contacto a buscar.
