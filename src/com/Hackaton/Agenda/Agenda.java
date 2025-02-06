@@ -11,12 +11,6 @@ public class Agenda {
     // Capacidad máxima de la agenda
     private int capacidad;
 
-    //*Constructor por defecto que inicializa la agenda con una capacidad de 10 contactos.
-
-    public Agenda() {
-        this.capacidad = 10;
-        this.contactos = new ArrayList<>();
-    }
 
     //* Constructor que permite establecer una capacidad específica para la agenda.
     public Agenda(int capacidad) {

@@ -4,6 +4,7 @@ package com.Hackaton.Contacto;
 public class Contacto extends Persona {
     private String telefono;
 
+
     //* Constructor que inicializa el contacto con nombre, apellido y teléfono
     public Contacto(String nombre, String apellido, String telefono) {
         super(nombre, apellido);
