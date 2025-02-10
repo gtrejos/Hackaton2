@@ -15,10 +15,12 @@ public class Persona {
 
     //* Métod getter para obtener el nombre
     public String getNombre() {
+
         return nombre;
     }
     // Métod gtter para obtener el apellido
     public String getApellido() {
+
         return apellido;
     }
 

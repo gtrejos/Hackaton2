@@ -13,12 +13,14 @@ public class Contacto extends Persona {
 
     //* Métoodo getter para obtener el teléfono del contacto
     public String getTelefono() {
+
         return telefono;
     }
 
     //* Métoodo toString para mostrar la representación del contacto
     @Override
     public String toString() {
+
         return super.toString() + ", Teléfono: " + telefono;
     }
 }

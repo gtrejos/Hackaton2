@@ -35,7 +35,7 @@ public class Agenda {
     //* return true si el contacto existe, false en caso contrario.
     public boolean existeContacto(Contacto c) {
         for (Contacto contacto : contactos) {
-            if (contacto.getNombre().equals(c.getNombre())) {
+            if (contacto.getNombre().equals(c.getNombre()) && contacto.getApellido().equals(c.getApellido())){
                 return true;
             }
         }

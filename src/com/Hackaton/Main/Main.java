@@ -25,7 +25,8 @@ public class Main {
             int capacidad = scanner.nextInt();
             if (capacidad == 0) {
                 capacidad = 10;
-
+            } else if (capacidad > 10) {
+                System.out.println("Error: Vuelve a ingresar un número válido (entre 1 y 10)");
             }
             Agenda agenda = new Agenda(capacidad);
 
